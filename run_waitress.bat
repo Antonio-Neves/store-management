@@ -5,6 +5,6 @@ REM Ativação e arranque (mantenha o caminho completo, pois o NSSM pode não sa
 call "D:\devdj\system-store\.venv\Scripts\activate.bat"
 
 REM Arranque do Waitress
-waitress-serve --port=8000 system_store.wsgi:application
+waitress-serve --port=8000 store_management.wsgi:application
 
 REM Não coloque 'pause' ou 'deactivate' no final, pois o serviço deve correr até ser parado.

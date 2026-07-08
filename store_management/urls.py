@@ -1,5 +1,5 @@
 """
-URL configuration for system_store project.
+URL configuration for store_management project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/6.0/topics/http/urls/
@@ -15,7 +15,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
-# System_store/urls.py
+# store_management/urls.py
 from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings

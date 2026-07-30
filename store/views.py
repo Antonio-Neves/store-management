@@ -259,7 +259,7 @@ def customer_update(request, pk):
         if form.is_valid():
             form.save()
             messages.success(request,
-                             f'Customer "{customer.name}" updated successfully!')
+                             f'Cliente "{customer.name}" atualizado com sucesso!')
             return redirect('customer_list')
     else:
         form = CustomerForm(instance=customer)
@@ -318,7 +318,7 @@ def sale_create(request):
         notes = request.POST.get('notes', '')
 
         if not product_ids:
-            messages.error(request, 'Add at least one product to the sale!')
+            messages.error(request, 'Adicione pelo menos um produto à venda!')
             return redirect('sale_create')
 
         # Create sale
@@ -341,7 +341,7 @@ def sale_create(request):
 
                 if product.stock < quantity:
                     messages.error(request,
-                                   f'Insufficient stock for {product.name}!')
+                                   f'Estoque insuficiente para {product.name}!')
                     sale.delete()
                     return redirect('sale_create')
 
@@ -371,7 +371,7 @@ def sale_create(request):
         sale.total = total
         sale.save()
 
-        messages.success(request, f'Sale #{sale.id} created successfully!')
+        messages.success(request, f'Venda #{sale.id} criada com sucesso!')
         return redirect('sale_detail', pk=sale.id)
 
     products = Product.objects.filter(active=True, stock__gt=0)
@@ -482,7 +482,7 @@ def stock_adjustment(request):
 
             product.save()
 
-            messages.success(request, 'Stock updated successfully!')
+            messages.success(request, 'Estoque atualizado com sucesso!')
             return redirect('stock_movements')
     else:
         form = StockMovementForm()

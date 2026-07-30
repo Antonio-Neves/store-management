@@ -1,22 +1,8 @@
-<div class="container">
 {% if messages %}
-    <br>
     {% for message in messages %}
-        <div class="alert {{ message.tags }}" role="alert">
+        <div class="alert alert-{% if message.tags == 'error' %}danger{% else %}{{ message.tags }}{% endif %} alert-dismissible fade show mb-2" role="alert">
             {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         </div>
     {% endfor %}
 {% endif %}
-
-{% if form.non_field_errors %}
-    <div class="alert alert-danger" role="alert">
-        {{ form.non_field_errors }}
-    </div>
-{% endif %}
-
-{% if form.errors %}
-    <div class="alert alert-danger" role="alert">
-        <h6>Registration error, check the form fields</h6>
-    </div>
-{% endif %}
-</div>
